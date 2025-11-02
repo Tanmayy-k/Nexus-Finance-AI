@@ -26,7 +26,15 @@ from config import get_config
 app = Flask(__name__)
 config = get_config()
 app.config.from_object(config)
-CORS(app, origins=config.CORS_ORIGINS)
+# This tells your backend to trust your frontend
+CORS(app, 
+     origins=[
+        "http://127.0.0.1:5500",  # For local testing
+        "https_or_http_://your_local_ip_address:port", # for mobile testing
+        "https://nexus-finance-ai-umber.vercel.app" # Your live frontend
+     ], 
+     supports_credentials=True
+)
 db.init_app(app)
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
