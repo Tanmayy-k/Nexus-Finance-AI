@@ -2276,8 +2276,8 @@
                                     <div class="stat-value" id="a-total">₹2,458.23</div>
                                 </div>
                                 <div class="stat-card">
-                                    <div class="stat-label">Avg. Monthly Spend</div>
-                                    <div class="stat-value" id="a-avg">₹1,850.00</div>
+                                    <div class="stat-label">My Financial Score</div>
+                                    <div class="stat-value" id="a-financial-score">--/100</div>
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-label">Top Category</div>
@@ -2709,6 +2709,30 @@ async function testApiConnection() {
         async function loadFinancialSummary() {
             try {
                 const summaryData = await apiCall('/summary');
+                
+                // --- Add this block to call the predict API ---
+                try {
+                    // Use the user's real income if available, or a default
+                    const income = userInfo?.income || 50000;
+
+                    // We don't have a specific investment amount, so we'll use a placeholder
+                    const investmentAmount = 5000; 
+
+                    const score = await getFinancialAdviceScore(
+                        income, 
+                        summaryData.total_spent, 
+                        investmentAmount
+                    );
+
+                    if (score) {
+                        document.getElementById('a-financial-score').textContent = `${score}/100`;
+                    }
+                } catch (e) {
+                    console.error("Could not load financial score:", e);
+                    document.getElementById('a-financial-score').textContent = "Error";
+                }
+                // --- End of new block ---
+                
                 // ✅ COMMENTED OUT: Don't overwrite demo metric values with API data
                 // document.querySelector('.overview-metrics .metric-card:nth-child(1) .metric-value').textContent = `₹${summaryData.net_worth.toLocaleString()}`; 
                 // document.querySelector('.overview-metrics .metric-card:nth-child(2) .metric-value').textContent = `₹${summaryData.total_assets.toLocaleString()}`;
