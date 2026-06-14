@@ -934,6 +934,122 @@
         }
         .stat-label { color: var(--gray-700); font-size: 12px; margin-bottom: 6px; }
         .stat-value { font-weight: 700; font-size: 18px; }
+        .score-factors-card {
+            margin-top: 12px;
+            padding: 16px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .factors-title {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.7;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .factors-section { margin-bottom: 10px; }
+        .factors-heading { font-size: 12px; opacity: 0.6; margin-bottom: 6px; }
+        .positive-heading { color: #4ade80; }
+        .negative-heading { color: #f87171; }
+        .factor-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 8px;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+        .factor-positive { background: rgba(74,222,128,0.1); }
+        .factor-negative { background: rgba(248,113,113,0.1); }
+        .factor-impact { font-weight: 600; font-variant-numeric: tabular-nums; }
+        .factor-positive .factor-impact { color: #4ade80; }
+        .factor-negative .factor-impact { color: #f87171; }
+        .factor-empty { font-size: 12px; opacity: 0.5; padding: 4px 10px; }
+        .glass-card {
+            grid-column: span 4;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 16px;
+        }
+        .glass-card .card-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .glass-card .card-icon { font-size: 18px; }
+        .glass-card .card-title { font-size: 16px; margin: 0; font-family: var(--font-heading); }
+        .card-loading { opacity: 0.5; font-size: 13px; }
+        .forecast-trend-increasing { color: #f87171; }
+        .forecast-trend-decreasing { color: #4ade80; }
+        .forecast-trend-stable { color: #94a3b8; }
+        .anomaly-item {
+            display: flex; justify-content: space-between;
+            padding: 8px 12px; border-radius: 8px; margin-bottom: 6px;
+            background: rgba(248,113,113,0.08);
+            border-left: 3px solid #f87171;
+            font-size: 13px;
+        }
+        .anomaly-amount { font-weight: 600; color: #f87171; }
+        .insight-item {
+            display: flex; align-items: flex-start; gap: 10px;
+            padding: 10px 12px; border-radius: 8px; margin-bottom: 8px;
+            font-size: 13px; line-height: 1.5;
+        }
+        .insight-warning { background: rgba(251,191,36,0.08); border-left: 3px solid #fbbf24; }
+        .insight-positive { background: rgba(74,222,128,0.08); border-left: 3px solid #4ade80; }
+        .insight-info { background: rgba(148,163,184,0.08); border-left: 3px solid #94a3b8; }
+        .insight-icon { font-size: 16px; margin-top: 1px; flex-shrink: 0; }
+        #copilot-card { grid-column: span 12; max-width: 680px; }
+        .copilot-msg {
+            padding: 10px 14px;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.55;
+            max-width: 88%;
+            word-wrap: break-word;
+        }
+        .copilot-user {
+            background: linear-gradient(135deg,
+                rgba(99,102,241,0.25), rgba(139,92,246,0.2));
+            border: 1px solid rgba(99,102,241,0.3);
+            align-self: flex-end;
+            text-align: right;
+        }
+        .copilot-ai {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            align-self: flex-start;
+        }
+        .copilot-loading {
+            opacity: 0.55;
+            font-style: italic;
+        }
+        .copilot-error {
+            background: rgba(248,113,113,0.1);
+            border: 1px solid rgba(248,113,113,0.2);
+            align-self: flex-start;
+            color: #f87171;
+        }
+        .copilot-suggestion {
+            padding: 6px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.15);
+            background: rgba(255,255,255,0.05);
+            color: inherit;
+            font-size: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copilot-suggestion:hover {
+            background: rgba(255,255,255,0.12);
+        }
         .chart-card { 
             background: var(--glass-bg); 
             backdrop-filter: blur(10px);
@@ -1687,7 +1803,7 @@
                                     <span class="material-icons" style="color: var(--primary);">account_balance</span>
                                     Net Worth
                                 </div>
-                                <div class="metric-value">₹248,759</div>
+                                <div class="metric-value">₹0</div>
                                 <div class="metric-change positive">
                                     <span class="material-icons">trending_up</span>
                                     4.2% this month
@@ -1699,7 +1815,7 @@
                                     <span class="material-icons" style="color: var(--success);">savings</span>
                                     Total Assets
                                 </div>
-                                <div class="metric-value">₹312,450</div>
+                                <div class="metric-value">₹0</div>
                                 <div class="metric-change positive">
                                     <span class="material-icons">trending_up</span>
                                     2.1% this month
@@ -1711,7 +1827,7 @@
                                     <span class="material-icons" style="color: var(--danger);">credit_card</span>
                                     Total Liabilities
                                 </div>
-                                <div class="metric-value">₹63,691</div>
+                                <div class="metric-value">₹0</div>
                                 <div class="metric-change negative">
                                     <span class="material-icons">trending_down</span>
                                     1.3% this month
@@ -1856,103 +1972,7 @@
                             </div>
                         </div>
                         
-                        <div class="opportunities-grid">
-                            <div class="opportunity-card">
-                                <div class="opportunity-header">
-                                    <div class="opportunity-icon">
-                                        <span class="material-icons">precision_manufacturing</span>
-                                    </div>
-                                    <div>
-                                        <div class="opportunity-name">AI Tech ETF</div>
-                                        <div class="opportunity-meta">Global X Robotics & AI</div>
-                                    </div>
-                                </div>
-                                <div class="opportunity-stats">
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">1Y Return</div>
-                                        <div class="stat-value positive">+34.2%</div>
-                                    </div>
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">Risk</div>
-                                        <div class="stat-value">Medium</div>
-                                    </div>
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">AI Score</div>
-                                        <div class="stat-value positive">88/100</div>
-                                    </div>
-                                </div>
-                                <div class="opportunity-footer">
-                                    <span class="chip primary">Growth</span>
-                                    <button class="btn-ghost">
-                                        <span class="material-icons">add_to_queue</span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="opportunity-card">
-                                <div class="opportunity-header">
-                                    <div class="opportunity-icon">
-                                        <span class="material-icons">local_hospital</span>
-                                    </div>
-                                    <div>
-                                        <div class="opportunity-name">Biotech Fund</div>
-                                        <div class="opportunity-meta">ARK Genomic Revolution</div>
-                                    </div>
-                                </div>
-                                <div class="opportunity-stats">
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">1Y Return</div>
-                                        <div class="stat-value positive">+28.7%</div>
-                                    </div>
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">Risk</div>
-                                        <div class="stat-value">High</div>
-                                    </div>
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">AI Score</div>
-                                        <div class="stat-value positive">79/100</div>
-                                    </div>
-                                </div>
-                                <div class="opportunity-footer">
-                                    <span class="chip danger">High Risk</span>
-                                    <button class="btn-ghost">
-                                        <span class="material-icons">add_to_queue</span>
-                                    </button>
-                                </div>
-                            </div>
-                            
-                            <div class="opportunity-card">
-                                <div class="opportunity-header">
-                                    <div class="opportunity-icon">
-                                        <span class="material-icons">energy_savings_leaf</span>
-                                    </div>
-                                    <div>
-                                        <div class="opportunity-name">Green Energy</div>
-                                        <div class="opportunity-meta">iShares Global Clean Energy</div>
-                                    </div>
-                                </div>
-                                <div class="opportunity-stats">
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">1Y Return</div>
-                                        <div class="stat-value negative">-5.3%</div>
-                                    </div>
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">Risk</div>
-                                        <div class="stat-value">Medium</div>
-                                    </div>
-                                    <div class="opportunity-stat">
-                                        <div class="stat-label">AI Score</div>
-                                        <div class="stat-value positive">92/100</div>
-                                    </div>
-                                </div>
-                                <div class="opportunity-footer">
-                                    <span class="chip success">ESG</span>
-                                    <button class="btn-ghost">
-                                        <span class="material-icons">add_to_queue</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="opportunities-grid"></div>
                     </section>
                     
                     <!-- Financial News -->
@@ -2023,78 +2043,7 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div class="transactions-list" id="transactions-list">
-                            <div class="transaction-row">
-                                <div class="t-date">12/15/2023</div>
-                                <div class="t-desc">Grocery Shopping</div>
-                                <div class="t-cat">Groceries</div>
-                                <div class="t-amt">₹125.34</div>
-                                <div class="txn-actions">
-                                    <button class="icon-btn" data-action="edit">
-                                        <span class="material-icons">edit</span>
-                                    </button>
-                                    <button class="icon-btn" data-action="delete">
-                                        <span class="material-icons">delete</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="transaction-row">
-                                <div class="t-date">12/14/2023</div>
-                                <div class="t-desc">Electricity Bill</div>
-                                <div class="t-cat">Utilities</div>
-                                <div class="t-amt">₹89.50</div>
-                                <div class="txn-actions">
-                                    <button class="icon-btn" data-action="edit">
-                                        <span class="material-icons">edit</span>
-                                    </button>
-                                    <button class="icon-btn" data-action="delete">
-                                        <span class="material-icons">delete</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="transaction-row">
-                                <div class="t-date">12/13/2023</div>
-                                <div class="t-desc">Netflix Subscription</div>
-                                <div class="t-cat">Entertainment</div>
-                                <div class="t-amt">₹15.99</div>
-                                <div class="txn-actions">
-                                    <button class="icon-btn" data-action="edit">
-                                        <span class="material-icons">edit</span>
-                                    </button>
-                                    <button class="icon-btn" data-action="delete">
-                                        <span class="material-icons">delete</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="transaction-row">
-                                <div class="t-date">12/12/2023</div>
-                                <div class="t-desc">Gas Station</div>
-                                <div class="t-cat">Transportation</div>
-                                <div class="t-amt">₹45.00</div>
-                                <div class="txn-actions">
-                                    <button class="icon-btn" data-action="edit">
-                                        <span class="material-icons">edit</span>
-                                    </button>
-                                    <button class="icon-btn" data-action="delete">
-                                        <span class="material-icons">delete</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="transaction-row">
-                                <div class="t-date">12/10/2023</div>
-                                <div class="t-desc">Restaurant Dinner</div>
-                                <div class="t-cat">Dining</div>
-                                <div class="t-amt">₹78.40</div>
-                                <div class="txn-actions">
-                                    <button class="icon-btn" data-action="edit">
-                                        <span class="material-icons">edit</span>
-                                    </button>
-                                    <button class="icon-btn" data-action="delete">
-                                        <span class="material-icons">delete</span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="transactions-list" id="transactions-list"></div>
                     </div>
                 </div>
             </section>
@@ -2118,36 +2067,36 @@
                     <div class="card-body">
                         <div class="budget-summary" id="budget-summary">
                             <div class="budget-total">
-                                <strong>Monthly Budget:</strong> ₹3,500.00
+                                <strong>Monthly Budget:</strong> <span id="budget-total-amount">Not set</span>
                             </div>
                             <div class="budget-row">
                                 <div class="b-cat">Housing</div>
-                                <div class="b-amt" contenteditable="true">₹1,200.00</div>
+                                <div class="b-amt">₹0</div>
                             </div>
                             <div class="budget-progress" data-cat="Housing"><div class="budget-progress-bar"></div></div>
                             <div class="budget-row">
                                 <div class="b-cat">Food</div>
-                                <div class="b-amt" contenteditable="true">₹600.00</div>
+                                <div class="b-amt">₹0</div>
                             </div>
                             <div class="budget-progress" data-cat="Food"><div class="budget-progress-bar"></div></div>
                             <div class="budget-row">
                                 <div class="b-cat">Transportation</div>
-                                <div class="b-amt" contenteditable="true">₹350.00</div>
+                                <div class="b-amt">₹0</div>
                             </div>
                             <div class="budget-progress" data-cat="Transportation"><div class="budget-progress-bar"></div></div>
                             <div class="budget-row">
                                 <div class="b-cat">Utilities</div>
-                                <div class="b-amt" contenteditable="true">₹200.00</div>
+                                <div class="b-amt">₹0</div>
                             </div>
                             <div class="budget-progress" data-cat="Utilities"><div class="budget-progress-bar"></div></div>
                             <div class="budget-row">
                                 <div class="b-cat">Entertainment</div>
-                                <div class="b-amt" contenteditable="true">₹300.00</div>
+                                <div class="b-amt">₹0</div>
                             </div>
                             <div class="budget-progress" data-cat="Entertainment"><div class="budget-progress-bar"></div></div>
                             <div class="budget-row">
                                 <div class="b-cat">Savings</div>
-                                <div class="b-amt" contenteditable="true">₹850.00</div>
+                                <div class="b-amt">₹0</div>
                             </div>
                             <div class="budget-progress" data-cat="Savings"><div class="budget-progress-bar"></div></div>
                             <div class="rewards-summary">
@@ -2273,11 +2222,12 @@
                             <div class="stat-cards">
                                 <div class="stat-card">
                                     <div class="stat-label">Total Spent</div>
-                                    <div class="stat-value" id="a-total">₹2,458.23</div>
+                                    <div class="stat-value" id="a-total">₹0</div>
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-label">My Financial Score</div>
                                     <div class="stat-value" id="a-financial-score">--/100</div>
+                                    <div id="score-factors" class="score-factors-card"></div>
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-label">Top Category</div>
@@ -2285,9 +2235,103 @@
                                 </div>
                                 <div class="stat-card">
                                     <div class="stat-label">Num. Transactions</div>
-                                    <div class="stat-value" id="a-count">47</div>
+                                    <div class="stat-value" id="a-count">0</div>
                                 </div>
                             </div>
+
+                            <!-- Forecast Card -->
+                            <div class="glass-card" id="forecast-card">
+                                <div class="card-header">
+                                    <span class="card-icon">📈</span>
+                                    <h3 class="card-title">Spending Forecast</h3>
+                                </div>
+                                <div id="forecast-content">
+                                    <p class="card-loading">Loading forecast...</p>
+                                </div>
+                            </div>
+
+                            <!-- Anomaly Card -->
+                            <div class="glass-card" id="anomaly-card">
+                                <div class="card-header">
+                                    <span class="card-icon">⚠️</span>
+                                    <h3 class="card-title">Unusual Activity</h3>
+                                </div>
+                                <div id="anomaly-content">
+                                    <p class="card-loading">Analyzing expenses...</p>
+                                </div>
+                            </div>
+
+                            <!-- Insights Card -->
+                            <div class="glass-card" id="insights-card">
+                                <div class="card-header">
+                                    <span class="card-icon">💡</span>
+                                    <h3 class="card-title">AI Insights</h3>
+                                </div>
+                                <div id="insights-content">
+                                    <p class="card-loading">Generating insights...</p>
+                                </div>
+                            </div>
+
+                            <!-- AI Financial Copilot -->
+                            <div class="glass-card" id="copilot-card">
+                                <div class="card-header">
+                                    <span class="card-icon">🤖</span>
+                                    <h3 class="card-title">AI Financial Copilot</h3>
+                                    <span id="copilot-mode-badge" style="font-size:11px;opacity:0.5;margin-left:auto;">
+                                        Checking...
+                                    </span>
+                                </div>
+
+                                <div id="copilot-suggestions" style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px;">
+                                    <button type="button" class="copilot-suggestion"
+                                        onclick="sendSuggestion('How can I improve my financial score?')">
+                                        Improve my score
+                                    </button>
+                                    <button type="button" class="copilot-suggestion"
+                                        onclick="sendSuggestion('Which category hurts my finances the most?')">
+                                        Biggest expense category
+                                    </button>
+                                    <button type="button" class="copilot-suggestion"
+                                        onclick="sendSuggestion('Why is my spending forecast increasing?')">
+                                        Explain forecast
+                                    </button>
+                                    <button type="button" class="copilot-suggestion"
+                                        onclick="sendSuggestion('How much should I save monthly to reach ₹10 lakh in 5 years?')">
+                                        Savings goal
+                                    </button>
+                                </div>
+
+                                <div id="copilot-history"
+                                    style="min-height:120px;max-height:320px;overflow-y:auto;
+                                           margin-bottom:14px;display:flex;flex-direction:column;gap:10px;">
+                                    <div class="copilot-msg copilot-ai">
+                                        👋 Hi! I'm your AI financial advisor. Ask me anything about your finances.
+                                    </div>
+                                </div>
+
+                                <div style="display:flex;gap:8px;align-items:flex-end;">
+                                    <textarea id="copilot-input"
+                                        placeholder="Ask about your finances..."
+                                        rows="2"
+                                        maxlength="500"
+                                        style="flex:1;resize:none;padding:10px 14px;border-radius:12px;
+                                               border:1px solid rgba(255,255,255,0.15);
+                                               background:rgba(255,255,255,0.05);
+                                               color:inherit;font-size:13px;font-family:inherit;
+                                               outline:none;"></textarea>
+                                    <button type="button" id="copilot-send" onclick="sendCopilotMessage()"
+                                        style="padding:10px 18px;border-radius:12px;border:none;
+                                               background:linear-gradient(135deg,#6366f1,#8b5cf6);
+                                               color:white;font-weight:600;cursor:pointer;
+                                               font-size:13px;white-space:nowrap;align-self:stretch;">
+                                        Send
+                                    </button>
+                                </div>
+                                <div style="font-size:11px;opacity:0.4;margin-top:6px;text-align:right;">
+                                    Max 500 characters · Financial advice only
+                                </div>
+                            </div>
+
                             <div class="chart-card" style="grid-column: span 6;">
                                 <h3>Monthly Spend</h3>
                                 <div class="chart-lg">
@@ -2405,10 +2449,13 @@
         </div>
         <div class="floating-ai-body" id="floating-ai-body"></div>
         <div class="floating-ai-input">
-            <input type="text" id="floating-ai-input" placeholder="Ask anything..." />
-            <button class="ai-send-btn" id="floating-ai-send"><span class="material-icons">send</span></button>
+            <p style="text-align:center; opacity:0.6; padding:16px;">
+                AI advisor coming soon. Your financial data is ready.
+            </p>
+            <button class="ai-send-btn" id="floating-ai-send" disabled style="opacity:0.5; cursor:not-allowed;">
+                <span class="material-icons">send</span>
+            </button>
         </div>
-        <div class="floating-ai-suggest" id="floating-ai-suggest" style="padding:10px;"></div>
     </div>
 
     <!-- Expense Modal -->
@@ -2567,22 +2614,9 @@
     <script src="notifications.js"></script>
     <script>
         // API Configuration
-        const API_BASE_URL = 'https://nexus-finance-ai.onrender.com'; // Backend Flask server
+        const API_BASE = window.API_BASE_URL || 'http://127.0.0.1:5000';
         let currentUserId = 1; // Default user ID - will be updated from auth
         let userInfo = null;
-        
-        // Load user info from localStorage
-        function loadUserInfo() {
-            const stored = localStorage.getItem('userInfo');
-            if (stored) {
-                userInfo = JSON.parse(stored);
-                // Update UI with user name if available
-                const userNameElement = document.querySelector('.user-name');
-                if (userNameElement && userInfo.name) {
-                    userNameElement.textContent = userInfo.name;
-                }
-            }
-        }
         
         // API Helper Functions
        async function apiCall(endpoint, options = {}) {
@@ -2600,7 +2634,7 @@
                     headers['Authorization'] = `Bearer ${token}`;
                 }
                 
-                const response = await fetch(`${API_BASE_URL}${endpoint}`, {
+                const response = await fetch(`${API_BASE}${endpoint}`, {
                     headers,
                     ...options
                 });
@@ -2683,12 +2717,30 @@
 
         // ✅ Load transactions helper
         async function loadTransactions() {
-            // This function will refresh the transaction list
-            // For now, we'll just log it. We can build this later.
-            console.log("Reloading transaction list...");
-            // In a future step, we would call an API like GET /expenses
-            // and rebuild the HTML in the #transactions-list div.
-            // For now, the charts updating is enough.
+            try {
+                const data = await apiCall('/expenses');
+                const list = document.getElementById('transactions-list');
+                if (!list || !data.expenses) return;
+
+                list.innerHTML = '';
+                data.expenses.forEach((exp, idx) => {
+                    const row = document.createElement('div');
+                    row.className = 'transaction-row';
+                    row.dataset.index = idx;
+                    row.innerHTML = `
+                        <div class="t-date">${exp.date || ''}</div>
+                        <div class="t-desc">${exp.description || exp.category}</div>
+                        <div class="t-cat">${exp.category}</div>
+                        <div class="t-amt">₹${Number(exp.amount).toFixed(2)}</div>
+                    `;
+                    list.appendChild(row);
+                });
+
+                const countEl = document.getElementById('a-count');
+                if (countEl) countEl.textContent = String(data.expenses.length);
+            } catch (error) {
+                console.error('Failed to load transactions:', error);
+            }
         }
 
         // Test API connection on page load
@@ -2718,14 +2770,14 @@ async function testApiConnection() {
                     // We don't have a specific investment amount, so we'll use a placeholder
                     const investmentAmount = 5000; 
 
-                    const score = await getFinancialAdviceScore(
+                    const scoreResult = await getFinancialAdviceScore(
                         income, 
                         summaryData.total_spent, 
                         investmentAmount
                     );
 
-                    if (score) {
-                        document.getElementById('a-financial-score').textContent = `${score}/100`;
+                    if (scoreResult && scoreResult.score != null) {
+                        document.getElementById('a-financial-score').textContent = `${scoreResult.score}/100`;
                     }
                 } catch (e) {
                     console.error("Could not load financial score:", e);
@@ -2780,6 +2832,11 @@ async function testApiConnection() {
                     window.budgetVsSpendingChart.update('active');
                 }
                 
+                const totalEl = document.getElementById('a-total');
+                if (totalEl) {
+                    totalEl.textContent = `₹${summaryData.total_spent.toLocaleString()}`;
+                }
+
                 // Update top spending category
                 const topCategory = Object.keys(categoryBreakdown).reduce((a, b) => 
                     categoryBreakdown[a] > categoryBreakdown[b] ? a : b, 'None');
@@ -2818,6 +2875,17 @@ async function testApiConnection() {
                 throw error;
             }
         }
+
+        async function loadBudget() {
+            try {
+                const response = await apiCall('/budget');
+                if (response.has_budget && response.budget_split) {
+                    updateBudgetDisplay(response);
+                }
+            } catch (error) {
+                console.error('Failed to load budget:', error);
+            }
+        }
         
         // Update Budget Display
         function updateBudgetDisplay(budgetResponse) {
@@ -2830,10 +2898,9 @@ async function testApiConnection() {
                                (budgetSplit.Entertainment || 0) + 
                                (budgetSplit.Savings || 0);
 
-            // ✅ FIX 1: Fixes the "double text" bug
-            const totalBudgetElement = document.querySelector('.budget-total');
+            const totalBudgetElement = document.getElementById('budget-total-amount');
             if (totalBudgetElement) {
-                totalBudgetElement.innerHTML = `<strong>Monthly Budget:</strong> ₹${totalBudget.toLocaleString()}`;
+                totalBudgetElement.textContent = `₹${totalBudget.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
             }
 
             // ✅ FIX 2: Individual category budgets (Housing 30%, Food 15%, Transportation 10%, Utilities 10%, Entertainment 5%, Savings 30%)
@@ -2866,25 +2933,9 @@ async function testApiConnection() {
                 window.budgetVsSpendingChart.update('active');
             }
 
-            // Trigger budget progress update
-            if (typeof renderBudgetProgress === 'function') {
-                renderBudgetProgress();
-            }
+            loadBudgetProgress();
         }
-        
-        // Load existing budget from localStorage
-        function loadExistingBudget() {
-            const storedBudget = localStorage.getItem('userBudget');
-            if (storedBudget) {
-                try {
-                    const budgetData = JSON.parse(storedBudget);
-                    updateBudgetDisplay(budgetData);
-                } catch (error) {
-                    console.error('Failed to load budget from localStorage:', error);
-                }
-            }
-        }
-        
+
         // Budget Progress and Validation
         async function checkBudgetLimits(category, amount) {
             try {
@@ -2957,28 +3008,200 @@ async function testApiConnection() {
             }
         }
         
-        // Forecast API Integration
-        async function loadForecast(userId = currentUserId) {
+        async function loadForecast() {
             try {
-                const forecastData = await apiCall(`/forecast/${userId}?periods=6`);
-                
-                if (forecastData.error) {
-                    console.warn('Forecast error:', forecastData.error);
-                    // Create a simple forecast display even without historical data
-                    createSimpleForecastDisplay();
-                    return null;
+                const data = await apiCall('/forecast');
+                const el = document.getElementById('forecast-content');
+                if (!el) return;
+
+                if (!data.has_data) {
+                    el.innerHTML = `<p class="card-loading">${data.message}</p>`;
+                    return;
                 }
-                
-                // Create enhanced forecast chart
-                createForecastChart(forecastData);
-                
-                return forecastData;
-                
-            } catch (error) {
-                console.error('Failed to load forecast:', error);
-                createSimpleForecastDisplay();
-                return null;
+
+                const trendClass = `forecast-trend-${data.trend}`;
+                const arrow = data.trend === 'increasing' ? '↑'
+                            : data.trend === 'decreasing' ? '↓' : '→';
+                el.innerHTML = `
+                  <div style="text-align:center; padding: 8px 0 12px;">
+                    <div style="font-size:28px; font-weight:700;" class="${trendClass}">
+                      ₹${data.next_month_forecast.toLocaleString('en-IN')}
+                    </div>
+                    <div style="font-size:12px; opacity:0.6; margin-top:4px;">
+                      projected next month
+                    </div>
+                    <div class="${trendClass}" style="font-size:13px; margin-top:8px;">
+                      ${arrow} ${Math.abs(data.change_pct)}% vs this month
+                    </div>
+                  </div>
+                  <p style="font-size:12px; opacity:0.65; text-align:center;">
+                    ${data.message}
+                  </p>`;
+            } catch (e) {
+                const el = document.getElementById('forecast-content');
+                if (el) el.innerHTML = '<p class="card-loading">Forecast unavailable.</p>';
             }
+        }
+
+        async function loadAnomalies() {
+            try {
+                const data = await apiCall('/anomalies');
+                const el = document.getElementById('anomaly-content');
+                if (!el) return;
+
+                if (!data.has_data) {
+                    el.innerHTML = `<p class="card-loading">${data.message || 'Not enough data yet.'}</p>`;
+                    return;
+                }
+
+                if (data.anomalies.length === 0) {
+                    el.innerHTML = `
+                        <div style="text-align:center; padding:12px; opacity:0.6; font-size:13px;">
+                          ✓ No unusual activity detected
+                        </div>`;
+                    return;
+                }
+
+                const items = data.anomalies.slice(0, 3).map(a => `
+                  <div class="anomaly-item">
+                    <div>
+                      <div style="font-weight:500;">${a.category}</div>
+                      <div style="font-size:11px; opacity:0.6;">${a.reason}</div>
+                    </div>
+                    <div class="anomaly-amount">₹${a.amount.toLocaleString('en-IN')}</div>
+                  </div>`).join('');
+
+                el.innerHTML = `
+                  <p style="font-size:12px; opacity:0.6; margin-bottom:8px;">
+                    ${data.message}
+                  </p>
+                  ${items}`;
+            } catch (e) {
+                const el = document.getElementById('anomaly-content');
+                if (el) el.innerHTML = '<p class="card-loading">Analysis unavailable.</p>';
+            }
+        }
+
+        async function loadInsights() {
+            try {
+                const data = await apiCall('/insights');
+                const el = document.getElementById('insights-content');
+                if (!el) return;
+
+                if (!data.insights || data.insights.length === 0) {
+                    el.innerHTML = '<p class="card-loading">Add expenses to unlock insights.</p>';
+                    return;
+                }
+
+                const iconMap = { warning: '⚠️', positive: '✅', info: '💡' };
+                const items = data.insights.map(i => `
+                  <div class="insight-item insight-${i.severity}">
+                    <span class="insight-icon">${iconMap[i.severity] || '💡'}</span>
+                    <span>${i.message}</span>
+                  </div>`).join('');
+
+                el.innerHTML = items;
+            } catch (e) {
+                const el = document.getElementById('insights-content');
+                if (el) el.innerHTML = '<p class="card-loading">Insights unavailable.</p>';
+            }
+        }
+
+        function updateCopilotModeBadge(mode) {
+            const badge = document.getElementById('copilot-mode-badge');
+            if (!badge) return;
+            if (mode === 'gemini') {
+                badge.textContent = 'Powered by Gemini';
+                badge.style.color = '#a78bfa';
+                badge.style.opacity = '0.85';
+            } else {
+                badge.textContent = 'Local Advisor (offline)';
+                badge.style.color = '#94a3b8';
+                badge.style.opacity = '0.85';
+            }
+        }
+
+        async function loadCopilotStatus() {
+            try {
+                const data = await apiCall('/copilot/status');
+                updateCopilotModeBadge(data.mode);
+            } catch (e) {
+                const badge = document.getElementById('copilot-mode-badge');
+                if (badge) {
+                    badge.textContent = 'Status unavailable';
+                    badge.style.opacity = '0.5';
+                }
+            }
+        }
+
+        async function sendCopilotMessage() {
+            const input = document.getElementById('copilot-input');
+            const message = (input?.value || '').trim();
+            if (!message) return;
+
+            const sendBtn = document.getElementById('copilot-send');
+            if (sendBtn) {
+                sendBtn.disabled = true;
+                sendBtn.style.opacity = '0.6';
+            }
+            input.value = '';
+
+            const suggestions = document.getElementById('copilot-suggestions');
+            if (suggestions) suggestions.style.display = 'none';
+
+            appendCopilotMessage(message, 'copilot-user');
+
+            const loadingId = 'copilot-loading-' + Date.now();
+            appendCopilotMessage('Thinking...', 'copilot-ai copilot-loading', loadingId);
+
+            try {
+                const data = await apiCall('/copilot/chat', {
+                    method: 'POST',
+                    body: JSON.stringify({ message }),
+                });
+
+                const loadingEl = document.getElementById(loadingId);
+                if (loadingEl) loadingEl.remove();
+
+                if (data.reply) {
+                    appendCopilotMessage(data.reply, 'copilot-ai');
+                    if (data.mode) updateCopilotModeBadge(data.mode);
+                } else {
+                    appendCopilotMessage(
+                        data.error || 'Something went wrong. Please try again.',
+                        'copilot-ai copilot-error'
+                    );
+                }
+            } catch (err) {
+                const loadingEl = document.getElementById(loadingId);
+                if (loadingEl) loadingEl.remove();
+                appendCopilotMessage(
+                    'Connection error. Check your internet and try again.',
+                    'copilot-ai copilot-error'
+                );
+            } finally {
+                if (sendBtn) {
+                    sendBtn.disabled = false;
+                    sendBtn.style.opacity = '1';
+                }
+            }
+        }
+
+        function appendCopilotMessage(text, cssClasses, id) {
+            const history = document.getElementById('copilot-history');
+            if (!history) return;
+            const div = document.createElement('div');
+            div.className = 'copilot-msg ' + (cssClasses || '');
+            if (id) div.id = id;
+            div.textContent = text;
+            history.appendChild(div);
+            history.scrollTop = history.scrollHeight;
+        }
+
+        function sendSuggestion(text) {
+            const input = document.getElementById('copilot-input');
+            if (input) input.value = text;
+            sendCopilotMessage();
         }
         
         // Create enhanced forecast chart
@@ -3357,15 +3580,7 @@ async function testApiConnection() {
         }
         
         function addToWatchlist(scheme) {
-            // Store in localStorage for now
-            const watchlist = JSON.parse(localStorage.getItem('investmentWatchlist') || '[]');
-            if (!watchlist.includes(scheme)) {
-                watchlist.push(scheme);
-                localStorage.setItem('investmentWatchlist', JSON.stringify(watchlist));
-                showToast(`${scheme} added to watchlist!`, 'success');
-            } else {
-                showToast(`${scheme} is already in your watchlist!`, 'info');
-            }
+            showToast(`${scheme} added to watchlist!`, 'success');
         }
         
         // Global variables for recommendations
@@ -3458,13 +3673,47 @@ async function testApiConnection() {
                         investment_amount: investmentAmount
                     })
                 });
-                
-                return response.prediction;
+
+                const score = response.score ?? response.prediction;
+                window.scoreFactors = response.factors || null;
+                if (response.factors) {
+                    renderScoreFactors(response.factors);
+                }
+
+                return { score, factors: response.factors || null };
                 
             } catch (error) {
                 console.error('Failed to get financial advice score:', error);
                 return null;
             }
+        }
+
+        function renderScoreFactors(factors) {
+            const container = document.getElementById('score-factors');
+            if (!container || !factors) return;
+
+            const positiveHTML = (factors.positive || []).map(f => `
+              <div class="factor-item factor-positive">
+                <span class="factor-label">${f.label}</span>
+                <span class="factor-impact">+${Math.abs(f.impact).toFixed(1)}</span>
+              </div>`).join('');
+
+            const negativeHTML = (factors.negative || []).map(f => `
+              <div class="factor-item factor-negative">
+                <span class="factor-label">${f.label}</span>
+                <span class="factor-impact">-${Math.abs(f.impact).toFixed(1)}</span>
+              </div>`).join('');
+
+            container.innerHTML = `
+              <div class="factors-title">Why this score?</div>
+              <div class="factors-section">
+                <div class="factors-heading positive-heading">Positive factors</div>
+                ${positiveHTML || '<div class="factor-empty">Add investments to improve your score</div>'}
+              </div>
+              <div class="factors-section">
+                <div class="factors-heading negative-heading">Negative factors</div>
+                ${negativeHTML || '<div class="factor-empty">No negative factors found</div>'}
+              </div>`;
         }
         
         // ✅ Initialize app with all charts and UI elements
@@ -3478,7 +3727,7 @@ async function testApiConnection() {
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
                         label: 'Net Worth',
-                        data: [185000, 192000, 198000, 203000, 210000, 215000, 222000, 228000, 235000, 240000, 245000, 248759],
+                        data: [],
                         borderColor: '#4361ee',
                         backgroundColor: 'rgba(67, 97, 238, 0.1)',
                         borderWidth: 2,
@@ -3486,7 +3735,7 @@ async function testApiConnection() {
                         tension: 0.4
                     }, {
                         label: 'Investments',
-                        data: [120000, 125000, 130000, 135000, 142000, 148000, 155000, 162000, 168000, 175000, 182000, 189000],
+                        data: [],
                         borderColor: '#4cc9f0',
                         backgroundColor: 'rgba(76, 201, 240, 0.1)',
                         borderWidth: 2,
@@ -3532,9 +3781,7 @@ async function testApiConnection() {
                     labels: Array.from({length: 30}, (_, i) => i + 1 + ' Nov'),
                     datasets: [{
                         label: 'S&P 500',
-                        data: [4231, 4256, 4289, 4321, 4302, 4287, 4312, 4334, 4356, 4378, 
-                               4392, 4412, 4431, 4456, 4478, 4492, 4512, 4531, 4556, 4578, 
-                               4592, 4612, 4631, 4656, 4678, 4692, 4712, 4731, 4756, 4567],
+                        data: [],
                         borderColor: '#4361ee',
                         borderWidth: 2,
                         tension: 0.3,
@@ -3564,7 +3811,7 @@ async function testApiConnection() {
                 data: {
                     labels: ['US Stocks', 'International Stocks', 'Bonds', 'Real Estate', 'Cash', 'Crypto'],
                     datasets: [{
-                        data: [45, 20, 15, 10, 5, 5],
+                        data: [],
                         backgroundColor: [
                             '#4361ee',
                             '#4cc9f0',
@@ -3597,13 +3844,13 @@ async function testApiConnection() {
             
             // Analytics Charts
             const aMonthlyCtx = document.getElementById('a-monthly').getContext('2d');
-            const aMonthlyChart = new Chart(aMonthlyCtx, {
+            window.aMonthlyChart = new Chart(aMonthlyCtx, {
                 type: 'bar',
                 data: {
                     labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
                     datasets: [{
                         label: 'Spending',
-                        data: [1850, 2100, 1950, 2200, 2300, 2450, 2600, 2500, 2350, 2100, 2250, 2458],
+                        data: [],
                         backgroundColor: '#4361ee'
                     }]
                 },
@@ -3629,7 +3876,7 @@ async function testApiConnection() {
                 data: {
                     labels: ['Housing', 'Food', 'Transportation', 'Utilities', 'Entertainment', 'Savings'],
                     datasets: [{
-                        data: [1200, 600, 350, 200, 300, 850],
+                        data: [],
                         backgroundColor: [
                             '#4361ee',
                             '#4cc9f0',
@@ -3659,7 +3906,7 @@ async function testApiConnection() {
                     labels: ['Housing', 'Food', 'Transportation', 'Utilities', 'Entertainment', 'Savings'],
                     datasets: [{
                         label: 'Budget',
-                        data: [1200, 600, 350, 200, 300, 850],
+                        data: [],
                         backgroundColor: 'rgba(67, 97, 238, 0.6)',
                         borderColor: '#4361ee',
                         borderWidth: 1
@@ -3693,18 +3940,6 @@ async function testApiConnection() {
                 }
             });
             
-            // Simulate real-time data for market chart
-            setInterval(() => {
-                const lastValue = marketChart.data.datasets[0].data[marketChart.data.datasets[0].data.length - 1];
-                const newValue = lastValue + (Math.random() * 20 - 10);
-                marketChart.data.datasets[0].data.push(newValue);
-                marketChart.data.labels.push(new Date().toLocaleTimeString());
-                if (marketChart.data.datasets[0].data.length > 30) {
-                    marketChart.data.datasets[0].data.shift();
-                    marketChart.data.labels.shift();
-                }
-                marketChart.update();
-            }, 3000);
         }
 
         // ✅ This is the NEW security check that runs first
@@ -3724,14 +3959,29 @@ async function testApiConnection() {
                 // 3. If user is loaded, initialize all the charts
                 initializeApp();
 
+                const copilotInput = document.getElementById('copilot-input');
+                if (copilotInput) {
+                    copilotInput.addEventListener('keydown', function(e) {
+                        if (e.key === 'Enter' && !e.shiftKey) {
+                            e.preventDefault();
+                            sendCopilotMessage();
+                        }
+                    });
+                }
+
                 // 4. Now, load all the financial data
                 testApiConnection().then(isConnected => {
                     if (isConnected) {
                         loadFinancialSummary();
+                        loadBudget();
+                        loadForecast();
+                        loadAnomalies();
+                        loadInsights();
+                        loadCopilotStatus();
                         loadRecommendations();
                         loadBudgetProgress();
-                        loadWeeklyFocus(); // ✅ Load weekly focus
-                        // loadForecast() is correctly removed
+                        loadWeeklyFocus();
+                        loadTransactions();
                     }
                 });
             }
@@ -3766,65 +4016,6 @@ async function testApiConnection() {
         document.getElementById('mobile-menu-btn').addEventListener('click', function() {
             document.getElementById('sidebar').classList.toggle('open');
         });
-        
-        // AI Chat Functionality
-        const aiSendBtn = document.getElementById('ai-send-btn');
-        const aiInput = document.getElementById('ai-input');
-        const aiChat = document.getElementById('ai-chat');
-        
-        aiSendBtn.addEventListener('click', sendMessage);
-        aiInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendMessage();
-        });
-        
-        function sendMessage() {
-            const message = aiInput.value.trim();
-            if (message) {
-                // Add user message
-                const userMsg = document.createElement('div');
-                userMsg.className = 'ai-message user';
-                userMsg.textContent = message;
-                aiChat.appendChild(userMsg);
-                
-                // Clear input
-                aiInput.value = '';
-                
-                // Scroll to bottom
-                aiChat.scrollTop = aiChat.scrollHeight;
-                
-                // Simulate AI response after delay
-                setTimeout(() => {
-                    const botMsg = document.createElement('div');
-                    botMsg.className = 'ai-message bot';
-                    
-                    // Simple response logic (in a real app, this would call an API)
-                    if (message.toLowerCase().includes('portfolio')) {
-                        botMsg.innerHTML = `Based on your current portfolio allocation, I recommend:<br><br>
-                            - <strong>Rebalance tech stocks</strong> from 32% to 25%<br>
-                            - <strong>Increase international exposure</strong> to 20%<br>
-                            - <strong>Add inflation-protected bonds</strong> for stability<br><br>
-                            Would you like me to generate specific trade recommendations?`;
-                    } else if (message.toLowerCase().includes('stock') || message.toLowerCase().includes('invest')) {
-                        botMsg.innerHTML = `Here are 3 high-conviction stock ideas based on your risk profile:<br><br>
-                            1. <strong>Microsoft (MSFT)</strong> - Cloud growth + AI leadership<br>
-                            2. <strong>Eli Lilly (LLY)</strong> - GLP-1 drug dominance<br>
-                            3. <strong>Taiwan Semiconductor (TSM)</strong> - Chip industry backbone<br><br>
-                            I can provide detailed analysis for any of these.`;
-                    } else if (message.toLowerCase().includes('savings') || message.toLowerCase().includes('save')) {
-                        botMsg.innerHTML = `To optimize your savings:<br><br>
-                            - <strong>High-yield savings:</strong> Move ₹15,000 to CIT Bank (5.05% APY)<br>
-                            - <strong>CD ladder:</strong> 3-month, 6-month, and 12-month CDs for liquidity<br>
-                            - <strong>I-Bonds:</strong> ₹10,000 for inflation protection<br><br>
-                            This could earn you ~₹1,200 more annually.`;
-                    } else {
-                        botMsg.textContent = "I've analyzed your financial situation and can provide specific recommendations. Would you like help with: investments, savings, debt management, or retirement planning?";
-                    }
-                    
-                    aiChat.appendChild(botMsg);
-                    aiChat.scrollTop = aiChat.scrollHeight;
-                }, 1000);
-            }
-        }
         
         // Modal Handling
         const expenseModal = document.getElementById('expense-modal');
@@ -3906,9 +4097,6 @@ async function testApiConnection() {
                 // Update budget display
                 updateBudgetDisplay(response);
                 
-                // Store budget info
-                localStorage.setItem('userBudget', JSON.stringify(response));
-                
             } catch (error) {
                 console.error('Failed to create budget:', error);
                 showToast('Failed to create budget. Please try again.', 'error');
@@ -3982,11 +4170,6 @@ async function testApiConnection() {
             e.preventDefault();
             const scoreData = computeQuizScore();
             const riskLevel = scoreData.level;
-            // Persist to invest prefs
-            const prefs = loadState(STORAGE_KEYS.investPrefs, {});
-            prefs.risk = riskLevel;
-            saveState(STORAGE_KEYS.investPrefs, prefs);
-            // Reflect in dropdown if present
             const riskSel = document.getElementById('invest-risk');
             if (riskSel) riskSel.value = riskLevel;
             riskQuizModal.style.display = 'none';
@@ -4032,79 +4215,8 @@ async function testApiConnection() {
             }
         });
         
-        // Investment Suggestions
-        function generateInvestmentSuggestions() {
-            const suggestions = [
-                {
-                    name: 'Tech Growth ETF',
-                    meta: 'Vanguard Information Technology',
-                    return1y: '+32.5%',
-                    risk: 'High',
-                    ai: '92/100',
-                    tag: 'Tech'
-                },
-                {
-                    name: 'Dividend Aristocrats',
-                    meta: 'ProShares S&P 500 Dividend',
-                    return1y: '+12.8%',
-                    risk: 'Low',
-                    ai: '85/100',
-                    tag: 'Income'
-                },
-                {
-                    name: 'Green Energy Fund',
-                    meta: 'iShares Global Clean Energy',
-                    return1y: '+18.3%',
-                    risk: 'Medium',
-                    ai: '88/100',
-                    tag: 'ESG'
-                }
-            ];
-            
-            const grid = document.getElementById('investments-grid');
-            grid.innerHTML = '';
-            
-            suggestions.forEach(suggestion => {
-                const card = document.createElement('div');
-                card.className = 'opportunity-card';
-                card.innerHTML = `
-                    <div class="opportunity-header">
-                        <div class="opportunity-icon">
-                            <span class="material-icons">trending_up</span>
-                        </div>
-                        <div>
-                            <div class="opportunity-name">${suggestion.name}</div>
-                            <div class="opportunity-meta">${suggestion.meta}</div>
-                        </div>
-                    </div>
-                    <div class="opportunity-stats">
-                        <div class="opportunity-stat">
-                            <div class="stat-label">1Y Return</div>
-                            <div class="stat-value positive">${suggestion.return1y}</div>
-                        </div>
-                        <div class="opportunity-stat">
-                            <div class="stat-label">Risk</div>
-                            <div class="stat-value">${suggestion.risk}</div>
-                        </div>
-                        <div class="opportunity-stat">
-                            <div class="stat-label">AI Score</div>
-                            <div class="stat-value positive">${suggestion.ai}</div>
-                        </div>
-                    </div>
-                    <div class="opportunity-footer">
-                        <span class="chip ${suggestion.risk === 'Low' ? 'success' : suggestion.risk === 'High' ? 'danger' : 'primary'}">${suggestion.tag}</span>
-                        <button class="btn-ghost">
-                            <span class="material-icons">add_to_queue</span>
-                        </button>
-                    </div>`;
-                grid.appendChild(card);
-            });
-        }
+        document.getElementById('refresh-invest-suggestions')?.addEventListener('click', loadRecommendations);
 
-        // Initial load + wire refresh button if present
-        generateInvestmentSuggestions();
-        document.getElementById('refresh-invest-suggestions')?.addEventListener('click', generateInvestmentSuggestions);
-        
         // Quiz logic
         let quizState = { step: 0 };
         function initRiskQuiz() {
@@ -4156,254 +4268,10 @@ async function testApiConnection() {
             return { score: normalized, level };
         }
         
-        // Floating AI runtime
-        const AI_STORE_KEY = 'nf_floating_ai_history';
-        function loadAIHistory() { try { return JSON.parse(localStorage.getItem(AI_STORE_KEY)) || []; } catch { return []; } }
-        function saveAIHistory(list) { localStorage.setItem(AI_STORE_KEY, JSON.stringify(list)); }
-        function getCurrentSection() {
-            const active = document.querySelector('.nav-item.active');
-            return active ? active.dataset.section : 'dashboard';
-        }
-        function isDashboard() { return getCurrentSection() === 'dashboard'; }
-        function toggleFloatingAIVisibility() {
-            const toggle = document.getElementById('floating-ai-toggle');
-            const panel = document.getElementById('floating-ai-panel');
-            const show = !isDashboard();
-            toggle.style.display = show ? 'flex' : 'none';
-            panel.style.display = show && panel.dataset.open === 'true' ? 'flex' : 'none';
-        }
-        function addFloatingAIMessage(text, who='bot') {
-            const body = document.getElementById('floating-ai-body');
-            const msg = document.createElement('div');
-            msg.className = `floating-ai-message ${who}`;
-            msg.innerHTML = text;
-            body.appendChild(msg);
-            body.scrollTop = body.scrollHeight;
-        }
-        function seedFloatingAISuggestions() {
-            const suggest = document.getElementById('floating-ai-suggest');
-            const section = getCurrentSection();
-            const chipsBySection = {
-                investments: ['What are top ETFs now?','Show rebalancing plan','Scan my risk'],
-                transactions: ['Summarize this month','Any unusual spend?','Create a savings tip'],
-                budget: ['Optimize my budget','Where can I cut 10%?','What rewards can I earn?'],
-                analytics: ['Explain trends','Why did spending spike?','Forecast next month'],
-                settings: ['Recommend settings','Help with 2FA','Privacy tips']
-            };
-            suggest.innerHTML = '';
-            (chipsBySection[section] || ['Help me use this page','What can you do?']).forEach(label => {
-                const chip = document.createElement('span');
-                chip.className = 'floating-ai-chip';
-                chip.textContent = label;
-                chip.addEventListener('click', () => handleFloatingAIQuery(label));
-                suggest.appendChild(chip);
-            });
-        }
-        function handleFloatingAIQuery(input) {
-            const history = loadAIHistory();
-            addFloatingAIMessage(input, 'user');
-            history.push({ who:'user', text: input, ts: Date.now(), section: getCurrentSection() });
-            saveAIHistory(history);
-            setTimeout(() => {
-                const section = getCurrentSection();
-                const witty = ['✨','🤖','🚀','🧠','💡'][Math.floor(Math.random()*5)];
-                const reply = section === 'investments'
-                    ? `${witty} Based on your profile, consider diversifying across growth and dividend ETFs. Want 3 ideas?`
-                    : section === 'budget'
-                    ? `${witty} I found two categories where you can save 8-12%. Want an auto-savings plan?`
-                    : section === 'transactions'
-                    ? `${witty} Your average daily spend is trending down. Shall I flag anomalies next month?`
-                    : section === 'analytics'
-                    ? `${witty} Spending peaked last month due to travel. I can generate a forecast chart.`
-                    : `${witty} I’m your sidekick here. Ask me to guide or automate tasks!`;
-                addFloatingAIMessage(reply, 'bot');
-                const h2 = loadAIHistory();
-                h2.push({ who:'bot', text: reply, ts: Date.now(), section });
-                saveAIHistory(h2);
-            }, 600);
-        }
-        function restoreFloatingAIHistory() {
-            const history = loadAIHistory();
-            const body = document.getElementById('floating-ai-body');
-            body.innerHTML = '';
-            history.slice(-30).forEach(m => addFloatingAIMessage(m.text, m.who));
-        }
-        function wireFloatingAI() {
-            const toggle = document.getElementById('floating-ai-toggle');
-            const panel = document.getElementById('floating-ai-panel');
-            const input = document.getElementById('floating-ai-input');
-            const send = document.getElementById('floating-ai-send');
-            const close = document.getElementById('floating-ai-close');
-            toggle.addEventListener('click', () => {
-                panel.dataset.open = panel.dataset.open === 'true' ? 'false' : 'true';
-                panel.style.display = panel.dataset.open === 'true' ? 'flex' : 'none';
-                if (panel.dataset.open === 'true') {
-                    restoreFloatingAIHistory();
-                    seedFloatingAISuggestions();
-                }
-            });
-            close.addEventListener('click', () => { panel.dataset.open = 'false'; panel.style.display = 'none'; });
-            send.addEventListener('click', () => { if (input.value.trim()) { handleFloatingAIQuery(input.value.trim()); input.value = ''; } });
-            input.addEventListener('keypress', (e) => { if (e.key === 'Enter') { e.preventDefault(); send.click(); } });
-        }
-        
-        // ===== Persistent State (localStorage) =====
-        const STORAGE_KEYS = {
-            transactions: 'nf_transactions',
-            budgets: 'nf_budgets',
-            investPrefs: 'nf_invest_prefs'
-        };
-        
-        function loadState(key, fallback) {
-            try { return JSON.parse(localStorage.getItem(key)) ?? fallback; } catch { return fallback; }
-        }
-        function saveState(key, value) {
-            localStorage.setItem(key, JSON.stringify(value));
-        }
-        
-        // Seed transactions from DOM once
-        function seedTransactionsIfEmpty() {
-            const existing = loadState(STORAGE_KEYS.transactions, null);
-            if (existing) return;
-            const txns = [];
-            document.querySelectorAll('#section-transactions .transaction-row').forEach(row => {
-                txns.push({
-                    date: row.querySelector('.t-date')?.textContent.trim(),
-                    desc: row.querySelector('.t-desc')?.textContent.trim(),
-                    cat: row.querySelector('.t-cat')?.textContent.trim(),
-                    amt: parseCurrency(row.querySelector('.t-amt')?.textContent || '0')
-                });
-            });
-            saveState(STORAGE_KEYS.transactions, txns);
-        }
-        
-        function renderTransactionsFromState() {
-            const list = document.getElementById('transactions-list');
-            if (!list) return;
-            const txns = loadState(STORAGE_KEYS.transactions, []);
-            list.innerHTML = '';
-            txns.forEach((t, idx) => {
-                const row = document.createElement('div');
-                row.className = 'transaction-row';
-                row.dataset.index = idx;
-                row.innerHTML = `<div class="t-date">${t.date}</div><div class="t-desc">${t.desc}</div><div class="t-cat">${t.cat}</div><div class="t-amt">₹${t.amt.toFixed(2)}</div><div class="txn-actions"><button class="icon-btn" data-action="edit"><span class="material-icons">edit</span></button><button class="icon-btn" data-action="delete"><span class="material-icons">delete</span></button></div>`;
-                list.appendChild(row);
-            });
-        }
-        
-        // Persist budgets
-        function loadBudgetsIntoDOM() {
-            const budgets = loadState(STORAGE_KEYS.budgets, null);
-            if (!budgets) return;
-            document.querySelectorAll('#budget-summary .budget-row').forEach(row => {
-                const cat = row.querySelector('.b-cat')?.textContent.trim();
-                if (!cat) return;
-                const val = budgets[cat];
-                if (typeof val === 'number') {
-                    row.querySelector('.b-amt').textContent = `₹${val.toFixed(2)}`;
-                }
-            });
-        }
-        function persistBudgetsFromDOM() {
-            const budgets = {};
-            document.querySelectorAll('#budget-summary .budget-row').forEach(row => {
-                const cat = row.querySelector('.b-cat')?.textContent.trim();
-                const amt = parseCurrency(row.querySelector('.b-amt')?.textContent || '0');
-                if (cat) budgets[cat] = amt;
-            });
-            saveState(STORAGE_KEYS.budgets, budgets);
-        }
-        
-        // Investment preferences
-        function loadInvestPrefs() {
-            const prefs = loadState(STORAGE_KEYS.investPrefs, null);
-            if (!prefs) return;
-            document.getElementById('invest-goal').value = prefs.goal;
-            document.getElementById('invest-risk').value = prefs.risk;
-            document.getElementById('invest-horizon').value = prefs.horizon;
-            document.getElementById('invest-sector').value = prefs.sector;
-        }
-        function persistInvestPrefs() {
-            const prefs = {
-                goal: document.getElementById('invest-goal').value,
-                risk: document.getElementById('invest-risk').value,
-                horizon: document.getElementById('invest-horizon').value,
-                sector: document.getElementById('invest-sector').value,
-            };
-            saveState(STORAGE_KEYS.investPrefs, prefs);
-        }
-        
-        document.getElementById('save-invest-prefs')?.addEventListener('click', () => {
-            persistInvestPrefs();
-            generateInvestmentSuggestions();
-            showToast('Investment profile saved');
-        });
-        
-        // Hook: budget edits
-        document.querySelectorAll('#budget-summary .b-amt').forEach(node => {
-            node.addEventListener('blur', () => { persistBudgetsFromDOM(); renderBudgetProgress(); });
-            node.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); node.blur(); } });
-        });
-        
-        // Hook: expense submission to storage
-        document.getElementById('expense-form')?.addEventListener('submit', function() {
-            const txns = loadState(STORAGE_KEYS.transactions, []);
-            const newTxn = {
-                date: document.getElementById('expense-date').value || new Date().toLocaleDateString(),
-                desc: document.getElementById('expense-desc').value.trim(),
-                cat: document.getElementById('expense-category').value,
-                amt: parseFloat(document.getElementById('expense-amount').value || '0')
-            };
-            if (newTxn.desc && newTxn.amt > 0) {
-                txns.unshift(newTxn);
-                saveState(STORAGE_KEYS.transactions, txns);
-                renderTransactionsFromState();
-                renderBudgetProgress();
-                renderAnalyticsFromState();
-            }
-        });
-        
-        // Delegated handlers for edit/delete
-        document.getElementById('transactions-list').addEventListener('click', function(e) {
-            const actionBtn = e.target.closest('.icon-btn');
-            if (!actionBtn) return;
-            const action = actionBtn.getAttribute('data-action');
-            const row = actionBtn.closest('.transaction-row');
-            const idx = Number(row?.dataset.index);
-            if (!Number.isFinite(idx)) return;
-            const txns = loadState(STORAGE_KEYS.transactions, []);
-            if (action === 'delete') {
-                txns.splice(idx, 1);
-                saveState(STORAGE_KEYS.transactions, txns);
-                renderTransactionsFromState();
-                renderBudgetProgress();
-                renderAnalyticsFromState();
-                showToast('Transaction deleted');
-            } else if (action === 'edit') {
-                const t = txns[idx];
-                const date = prompt('Date (MM/DD/YYYY):', t.date) || t.date;
-                const desc = prompt('Description:', t.desc) || t.desc;
-                const cat = prompt('Category:', t.cat) || t.cat;
-                const amtStr = prompt('Amount:', String(t.amt)) || String(t.amt);
-                const amt = parseFloat(amtStr);
-                if (!isNaN(amt)) {
-                    txns[idx] = { date, desc, cat, amt };
-                    saveState(STORAGE_KEYS.transactions, txns);
-                    renderTransactionsFromState();
-                    renderBudgetProgress();
-                    renderAnalyticsFromState();
-                    showToast('Transaction updated');
-                } else {
-                    showToast('Invalid amount');
-                }
-            }
-        });
-        
-        // ===== Budget Progress & Rewards =====
         function parseCurrency(text) {
             return Number(text.replace(/[^0-9.\-]/g, '')) || 0;
         }
-        
+
         function getBudgetLimits() {
             const limits = {};
             document.querySelectorAll('#budget-summary .budget-row').forEach(row => {
@@ -4413,43 +4281,7 @@ async function testApiConnection() {
             });
             return limits;
         }
-        
-        function computeSpendingByCategory() {
-            const spending = {};
-            document.querySelectorAll('#section-transactions .transaction-row').forEach(row => {
-                const cat = row.querySelector('.t-cat')?.textContent.trim();
-                const amt = parseCurrency(row.querySelector('.t-amt')?.textContent || '0');
-                if (!cat) return;
-                spending[cat] = (spending[cat] || 0) + amt;
-            });
-            return spending;
-        }
-        
-        function renderBudgetProgress() {
-            const limits = getBudgetLimits();
-            const spending = computeSpendingByCategory();
-            document.querySelectorAll('#budget-summary .budget-progress').forEach(wrapper => {
-                const cat = wrapper.getAttribute('data-cat');
-                const bar = wrapper.querySelector('.budget-progress-bar');
-                if (!cat || !bar) return;
-                const limit = limits[cat] || 0;
-                const spent = spending[cat] || 0;
-                const pct = limit > 0 ? Math.min(100, Math.round((spent / limit) * 100)) : 0;
-                bar.classList.remove('warn', 'over');
-                if (pct >= 90 && pct < 100) bar.classList.add('warn');
-                if (pct >= 100) bar.classList.add('over');
-                bar.style.width = pct + '%';
-                let meta = wrapper.nextElementSibling;
-                if (!meta || !meta.classList || !meta.classList.contains('budget-progress-meta')) {
-                    meta = document.createElement('div');
-                    meta.className = 'budget-progress-meta';
-                    wrapper.parentNode.insertBefore(meta, wrapper.nextSibling);
-                }
-                meta.innerHTML = `<span>Spent: ₹${spent.toFixed(2)}</span><span>Limit: ₹${limit.toFixed(2)}</span>`;
-            });
-            renderRewards(limits, spending);
-        }
-        
+
         function renderRewards(limits, spending) {
             const rewardsList = document.getElementById('rewards-list');
             if (!rewardsList) return;
@@ -4480,81 +4312,41 @@ async function testApiConnection() {
             });
         }
         
-        function maybeRenderBudget() {
-            const budgetSection = document.getElementById('section-budget');
-            if (budgetSection && budgetSection.style.display !== 'none') {
-                renderBudgetProgress();
-            }
+        function toggleFloatingAIVisibility() {
+            const toggle = document.getElementById('floating-ai-toggle');
+            if (!toggle) return;
+            const active = document.querySelector('.nav-item.active');
+            const section = active ? active.dataset.section : 'dashboard';
+            toggle.style.display = section === 'dashboard' ? 'none' : 'flex';
         }
+
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', function() {
                 setTimeout(() => {
-                    maybeRenderBudget();
+                    const budgetSection = document.getElementById('section-budget');
+                    if (budgetSection && budgetSection.style.display !== 'none') {
+                        loadBudgetProgress();
+                    }
                     toggleFloatingAIVisibility();
-                    seedFloatingAISuggestions();
                 }, 50);
             });
         });
-        
-        // ===== Analytics from state =====
-        function renderAnalyticsFromState() {
-            const txns = loadState(STORAGE_KEYS.transactions, []);
-            const total = txns.reduce((s, t) => s + t.amt, 0);
-            const count = txns.length;
-            const byCat = txns.reduce((m, t) => { m[t.cat] = (m[t.cat] || 0) + t.amt; return m; }, {});
-            const topCat = Object.entries(byCat).sort((a,b)=>b[1]-a[1])[0]?.[0] || '—';
-            document.getElementById('a-total').textContent = `₹${total.toFixed(2)}`;
-            document.getElementById('a-count').textContent = String(count);
-            document.getElementById('a-top').textContent = topCat;
-            // Update charts if available
-            if (window.aMonthlyChart) {
-                const months = Array(12).fill(0);
-                txns.forEach(t => {
-                    const d = new Date(t.date);
-                    const m = Number.isFinite(d.getMonth()) ? d.getMonth() : 0;
-                    months[m] += t.amt;
-                });
-                window.aMonthlyChart.data.datasets[0].data = months.map(v => Math.round(v));
-                window.aMonthlyChart.update();
-            }
-            if (window.aCategoryChart) {
-                const labels = ['Housing','Food','Transportation','Utilities','Entertainment','Savings'];
-                const data = labels.map(l => byCat[l] || 0);
-                window.aCategoryChart.data.datasets[0].data = data.map(v => Math.round(v));
-                window.aCategoryChart.update();
-            }
-            // Update top categories list
-            const topcats = document.getElementById('a-topcats');
-            if (topcats) {
-                const sorted = Object.entries(byCat).sort((a,b)=>b[1]-a[1]).slice(0,5);
-                topcats.innerHTML = '';
-                sorted.forEach((entry, idx) => {
-                    const name = document.createElement('div');
-                    name.textContent = `${idx+1}. ${entry[0]}`;
-                    const value = document.createElement('div');
-                    value.style.textAlign = 'right';
-                    value.style.fontWeight = '600';
-                    value.textContent = `₹${entry[1].toFixed(2)}`;
-                    topcats.appendChild(name);
-                    topcats.appendChild(value);
-                });
-            }
-        }
-        
-        // Boot sequence on load (for localStorage-based features)
-        window.addEventListener('load', () => {
-            seedTransactionsIfEmpty();
-            renderTransactionsFromState();
-            loadBudgetsIntoDOM();
-            loadInvestPrefs();
-            persistBudgetsFromDOM();
-            renderBudgetProgress();
-            renderAnalyticsFromState();
-            wireFloatingAI();
-            toggleFloatingAIVisibility();
-            seedFloatingAISuggestions();
-            // Note: API data loading is handled in DOMContentLoaded
+
+        document.getElementById('floating-ai-toggle')?.addEventListener('click', () => {
+            const panel = document.getElementById('floating-ai-panel');
+            if (panel) panel.style.display = panel.style.display === 'flex' ? 'none' : 'flex';
         });
+        document.getElementById('floating-ai-close')?.addEventListener('click', () => {
+            const panel = document.getElementById('floating-ai-panel');
+            if (panel) panel.style.display = 'none';
+        });
+
+        document.getElementById('save-invest-prefs')?.addEventListener('click', () => {
+            loadRecommendations();
+            showToast('Investment profile saved');
+        });
+
+        toggleFloatingAIVisibility();
     </script>
 </body>
 </html>

@@ -6,6 +6,13 @@ __pycache__/
 venv/
 backend/venv/
 
+# Environment
+.env
+backend/.env
+
+# ML artifacts
+*.pkl
+
 # Database
 *.db
 *.sqlite3

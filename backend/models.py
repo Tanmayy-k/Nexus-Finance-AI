@@ -3,10 +3,17 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date, datetime
 from sqlalchemy import CheckConstraint
+from sqlalchemy.sql import func
 from werkzeug.security import generate_password_hash, check_password_hash
 import re
 
 db = SQLAlchemy()
+
+try:
+    from sqlalchemy.dialects.postgresql import JSONB
+    JSON_TYPE = JSONB
+except ImportError:
+    JSON_TYPE = db.JSON
 
 # Users table
 class User(db.Model):
@@ -17,7 +24,8 @@ class User(db.Model):
     income = db.Column(db.Float, nullable=True)
     goal = db.Column(db.String(50), nullable=True)  # e.g., "high_savings", "house", "retirement"
     risk_profile = db.Column(db.String(20), nullable=True)  # low/medium/high
-    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    cluster_id = db.Column(db.Integer, nullable=True)
+    created_at = db.Column(db.DateTime, server_default=func.now())
     is_active = db.Column(db.Boolean, default=True)
     
     # Relationships
@@ -66,7 +74,7 @@ class Expense(db.Model):
     amount = db.Column(db.Float, nullable=False)
     description = db.Column(db.String(200), nullable=True)
     created_at = db.Column(db.Date, nullable=False, default=date.today)
-    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, server_default=func.now(), onupdate=func.now())
     
     # Constraints
     __table_args__ = (
@@ -99,3 +107,28 @@ class Expense(db.Model):
     
     def __repr__(self):
         return f'<Expense {self.category}: ${self.amount}>'
+
+
+class AnomalyLog(db.Model):
+    __tablename__ = 'anomaly_log'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    expense_id = db.Column(db.Integer, db.ForeignKey('expense.id'), nullable=True)
+    anomaly_score = db.Column(db.Float, nullable=False)
+    reason = db.Column(db.String(500), nullable=True)
+    created_at = db.Column(db.DateTime, server_default=func.now())
+
+
+class PredictionLog(db.Model):
+    __tablename__ = 'prediction_log'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+    score = db.Column(db.Float, nullable=False)
+    features = db.Column(JSON_TYPE, nullable=True)
+    shap_values = db.Column(JSON_TYPE, nullable=True)
+    created_at = db.Column(db.DateTime, server_default=func.now())
+
+
+db.Index('ix_expense_user_id', Expense.user_id)
+db.Index('ix_expense_user_created', Expense.user_id, Expense.created_at)
+db.Index('ix_expense_user_category', Expense.user_id, Expense.category)

@@ -1,70 +1,218 @@
-# AI-Powered Smart Financial Goal Planner
+# Nexus Finance – AI-Powered Personal Finance & Investment Advisor
 
-This is a full-stack web application designed to help users manage their finances and achieve their goals using AI-driven insights and personalized recommendations.
+Nexus Finance is a full-stack fintech application that helps users manage expenses, track budgets, improve financial health, and receive AI-powered financial guidance through Machine Learning and Generative AI.
 
-**Live Frontend (Vercel):** [Your Vercel URL - e.g., https://nexus-finance-ai-umber.vercel.app]
-**Live Backend (Render):** [Your Render URL - e.g., https://nexus-finance-ai.onrender.com]
+The platform combines financial analytics, forecasting, anomaly detection, explainable AI, and a Gemini-powered financial copilot to deliver personalized financial recommendations.
 
 ---
 
-## 🚀 Core Features
+## 🚀 Key Features
 
-* **Secure Authentication:** Full user registration and login system using **JWT (JSON Web Tokens)** and **bcrypt** password hashing.
-* **Financial Tracking:** A complete dashboard for users to add, track, and visualize their expenses and budgets.
-* **50/20/30 Budgeting:** Automatically calculates a realistic budget (50% Needs, 20% Wants, 30% Savings) based on the user's income.
-* **Live Data Visualization:** Uses Chart.js to render real-time charts for spending summaries, budget tracking, and more.
+### Authentication & Security
+
+* JWT-based authentication
+* Secure password hashing
+* Protected API routes
+* Environment-based configuration management
+
+### Financial Management
+
+* Expense tracking and categorization
+* Income and budget management
+* Personalized budgeting recommendations
+* Spending summaries and analytics
+* Real-time financial dashboard
+
+### Investment & Recommendations
+
+* Personalized stock and mutual fund recommendations
+* User segmentation using behavioral clustering
+* Risk-aware investment suggestions
+
+---
 
 ## 🧠 AI & Machine Learning Features
 
-This project uses a combination of ML models and smart logic to provide proactive advice:
+### Financial Health Scoring
 
-1.  **K-Means Clustering (User Segmentation):**
-    * The backend groups users into "behavioral clusters" based on their income, risk, and goals.
-    * This is used to power the recommendation engine.
+* Random Forest-based Financial Health Score
+* Evaluates income, expenses, investments, and savings behavior
+* Provides a personalized financial score
 
-2.  **ML-Powered Recommendations:**
-    * The `GET /recommendations` API uses the user's cluster to provide a personalized list of *real* mutual funds and stocks.
+### Explainable AI (SHAP)
 
-3.  **Random Forest (Financial Score):**
-    * A pre-trained Random Forest model (`POST /predict`) analyzes a user's finances to give them a "Financial Health Score."
+* SHAP-based model explainability
+* Identifies positive and negative factors affecting the user's score
+* Transparent ML decision-making
 
-4.  **"Weekly Focus" Card:**
-    * The dashboard homepage features an AI-generated goal (e.g., "Your biggest drain was 'Food'. Try to cut spending by 10%.") based on the user's cluster and recent spending.
+### User Segmentation
 
-5.  **"Smart Nudges":**
-    * When a user adds an expense, the `POST /expense` API instantly checks it against their budget. If they overspend, it sends back a pop-up notification (e.g., "Heads up! You're at 90% of your 'shopping' budget.").
+* K-Means Clustering
+* Groups users based on financial behavior, goals, and risk profile
+* Powers recommendation personalization
+
+### Spending Forecasting
+
+* Predicts future monthly spending trends
+* Identifies increasing or decreasing expense patterns
+* Provides proactive financial planning insights
+
+### Anomaly Detection
+
+* Isolation Forest-based anomaly detection
+* Detects unusual spending activity
+* Highlights potentially risky financial behavior
+
+### AI Insights Engine
+
+* Generates personalized financial insights
+* Combines forecasting, anomalies, spending trends, and scoring data
+* Provides actionable recommendations
+
+### Gemini Financial Copilot
+
+* Gemini 2.5 Flash integration
+* Context-aware financial assistant
+* Uses:
+
+  * Financial Health Score
+  * SHAP factors
+  * Forecast summaries
+  * Spending behavior
+  * Anomaly insights
+* Supports intelligent financial coaching and planning
+
+---
 
 ## 🛠️ Technology Stack
 
-* **Backend:** Flask, SQLAlchemy
-* **Database:** SQLite
-* **Machine Learning:** Scikit-learn, Pandas
-* **Frontend:** HTML, CSS, JavaScript (Chart.js)
-* **Deployment:**
-    * Backend deployed on **Render**.
-    * Frontend deployed on **Vercel**.
+### Backend
 
-## ⚙️ How to Run Locally
+* Python
+* Flask
+* SQLAlchemy
+* Alembic
 
-1.  **Backend:**
-    ```bash
-    # Go into the backend folder
-    cd backend
-    
-    # Create and activate a virtual environment
-    python -m venv venv
-    .\venv\Scripts\activate
-    
-    # Install dependencies
-    pip install -r requirements.txt
-    
-    # Run the database seeder (one time)
-    # This creates and seeds the DB
-    python init_db.py
-    
-    # Start the server
-    python app.py
-    ```
+### Database
 
-2.  **Frontend:**
-    * Open the `frontend/login.html` file in your browser. The app is configured to connect to your local server (`http://127.0.0.1:5000`).
+* SQLite (Current)
+* PostgreSQL / Supabase Ready
+
+### Machine Learning & AI
+
+* Scikit-learn
+* Pandas
+* SHAP
+* Random Forest
+* K-Means Clustering
+* Isolation Forest
+* Google Gemini 2.5 Flash
+
+### Frontend
+
+* HTML
+* CSS
+* JavaScript
+* Chart.js
+
+---
+
+## 📊 System Architecture
+
+User
+↓
+Frontend Dashboard
+↓
+Flask REST APIs
+↓
+Business Services
+↓
+Machine Learning Layer
+(Random Forest, SHAP, K-Means, Isolation Forest)
+↓
+Gemini Financial Copilot
+↓
+SQLite / PostgreSQL
+
+---
+
+## ⚙️ Local Setup
+
+### Backend
+
+```bash
+cd backend
+
+python -m venv .venv
+.\.venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python app.py
+```
+
+Backend runs on:
+
+```text
+http://127.0.0.1:5000
+```
+
+### Frontend
+
+```bash
+cd frontend
+
+python -m http.server 5500
+```
+
+Open:
+
+```text
+http://127.0.0.1:5500/login.html
+```
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file inside the backend directory:
+
+```env
+JWT_SECRET_KEY=your_jwt_secret
+SECRET_KEY=your_secret_key
+DATABASE_URL=sqlite:///finance.db
+
+# Optional
+GEMINI_API_KEY=your_gemini_api_key
+```
+
+---
+
+## 📌 Current Status
+
+### Completed
+
+* Authentication System
+* Expense Tracking
+* Budget Management
+* Financial Health Scoring
+* SHAP Explainability
+* User Segmentation
+* Spending Forecasting
+* Anomaly Detection
+* AI Insights Engine
+* Gemini Financial Copilot
+* PostgreSQL Migration Support
+
+### Planned
+
+* React Frontend Migration
+* Supabase PostgreSQL Migration
+* Cloud Deployment
+* Enhanced Analytics Dashboard
+
+---
+
+## 👨‍💻 Contributors
+
+Developed as an AI-powered fintech project focused on Machine Learning, Explainable AI, Financial Analytics, and Generative AI integration.
