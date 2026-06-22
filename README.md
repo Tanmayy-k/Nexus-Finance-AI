@@ -203,11 +203,10 @@ GEMINI_API_KEY=your_gemini_api_key
 * AI Insights Engine
 * Gemini Financial Copilot
 * PostgreSQL Migration Support
-
-### Planned
-
 * React Frontend Migration
 * Supabase PostgreSQL Migration
+
+### Planned
 * Cloud Deployment
 * Enhanced Analytics Dashboard
 
