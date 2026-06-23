@@ -790,12 +790,12 @@ Building Nexus Finance involved solving production-grade engineering challenges 
 
 <div align="center">
 
-### Tanmay K
+### Tanmay Kshirsagar 
 
 *Full-Stack Developer · ML Engineer · Fintech Builder*
 
 [![GitHub](https://img.shields.io/badge/GitHub-Tanmayy--k-181717?style=for-the-badge&logo=github)](https://github.com/Tanmayy-k)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/your-profile)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin)]([https://linkedin.com/in/your-profil](https://www.linkedin.com/in/tanmay-kshirsagar-8188042b2/)
 
 </div>
 
